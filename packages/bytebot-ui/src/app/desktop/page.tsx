@@ -69,11 +69,11 @@ export default function DesktopPage() {
         <div className="flex h-full items-center justify-center">
           {/* Main container */}
           <div className="w-[60%] space-y-4">
-            <div className="mb-4 flex flex-col gap-1 rounded-lg border border-border bg-card px-4 py-3 dark:border-border/60 dark:bg-muted">
+            <div className="mb-4 flex flex-col gap-1 rounded-lg border border-border bg-card px-4 py-3 shadow-md dark:border-border/60 dark:bg-muted dark:shadow-none">
               <span className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
                 Active Model
               </span>
-              <span className="text-sm font-semibold text-foreground">
+              <span className="text-base font-bold text-foreground">
                 {modelLabel || "Model unavailable"}
               </span>
               {modelNameDetails && (

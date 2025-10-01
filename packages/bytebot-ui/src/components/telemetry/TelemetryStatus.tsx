@@ -386,7 +386,7 @@ export function TelemetryStatus({ className = "" }: Props) {
             className="flex-1 bg-black/30 dark:bg-black/60"
             onClick={() => setOpen(false)}
           />
-          <div className="h-full w-[360px] overflow-y-auto border border-border bg-card p-3 text-card-foreground shadow-xl dark:bg-muted">
+          <div className="h-full w-[360px] overflow-y-auto border-l border-border bg-background p-3 text-card-foreground shadow-xl">
             <div className="mb-2 flex items-center justify-between">
               <h3 className="text-sm font-semibold text-card-foreground">Desktop Accuracy</h3>
               <div className="flex items-center gap-2">

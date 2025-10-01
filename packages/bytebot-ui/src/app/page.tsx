@@ -21,7 +21,7 @@ const StockPhoto: React.FC<StockPhotoProps> = ({
   alt = "Decorative image",
 }) => {
   return (
-    <div className="h-full w-full overflow-hidden rounded-lg bg-card shadow-sm dark:bg-muted">
+    <div className="h-full w-full overflow-hidden rounded-2xl border border-border bg-card shadow-xl dark:border-border/60 dark:bg-muted dark:shadow-none">
       <div className="relative h-full w-full">
         <Image src={src} alt={alt} fill className="object-cover" priority />
       </div>
@@ -164,13 +164,16 @@ export default function Home() {
           {/* Main content area */}
           <div className="flex flex-col items-center overflow-y-auto">
             <div className="flex w-full max-w-xl flex-col items-center">
-              <div className="mb-6 flex w-full flex-col items-start justify-start">
-                <h1 className="mb-1 text-2xl text-foreground">
+              <div className="mb-8 flex w-full flex-col items-start justify-start">
+                <h1 className="mb-2 text-3xl font-bold text-foreground">
                   What can I help you get done?
                 </h1>
+                <p className="text-sm text-muted-foreground">
+                  Describe your task and let AI take control
+                </p>
               </div>
 
-              <div className="mb-10 w-full rounded-2xl border border-border bg-card p-2 shadow-sm dark:bg-muted">
+              <div className="mb-10 w-full rounded-2xl border border-border bg-card p-4 shadow-lg dark:border-border/60 dark:bg-muted dark:shadow-none">
                 <ChatInput
                   input={input}
                   isLoading={isLoading}
@@ -222,13 +225,16 @@ export default function Home() {
         <div className="flex h-full flex-col lg:hidden">
           <div className="flex flex-1 flex-col items-center overflow-y-auto px-4 pt-10">
             <div className="flex w-full max-w-xl flex-col items-center pb-10">
-              <div className="mb-6 flex w-full flex-col items-start justify-start">
-                <h1 className="mb-1 text-2xl text-foreground">
+              <div className="mb-8 flex w-full flex-col items-start justify-start">
+                <h1 className="mb-2 text-3xl font-bold text-foreground">
                   What can I help you get done?
                 </h1>
+                <p className="text-sm text-muted-foreground">
+                  Describe your task and let AI take control
+                </p>
               </div>
 
-              <div className="mb-10 w-full rounded-2xl border border-border bg-card p-2 shadow-sm dark:bg-muted">
+              <div className="mb-10 w-full rounded-2xl border border-border bg-card p-4 shadow-lg dark:border-border/60 dark:bg-muted dark:shadow-none">
                 <ChatInput
                   input={input}
                   isLoading={isLoading}

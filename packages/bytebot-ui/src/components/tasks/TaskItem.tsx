@@ -10,6 +10,7 @@ import {
 } from "@hugeicons/core-free-icons";
 import { Loader } from "@/components/ui/loader";
 import Link from "next/link";
+import { motion } from "framer-motion";
 
 interface TaskItemProps {
   task: Task;
@@ -111,15 +112,32 @@ export const TaskItem: React.FC<TaskItemProps> = ({ task }) => {
 
   return (
     <Link href={`/tasks/${task.id}`} className="block">
-      <div className="flex min-h-24 items-start rounded-lg border border-border bg-card p-5 transition-colors hover:bg-muted/70">
+      <motion.div
+        className="flex min-h-24 items-start rounded-lg border border-border bg-card p-5 shadow-sm transition-all hover:shadow-md dark:border-border/60 dark:bg-muted dark:shadow-none dark:hover:border-border"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        exit={{ opacity: 0, y: -20 }}
+        whileHover={{ scale: 1.005 }}
+        transition={{ duration: 0.2, ease: "easeOut" }}
+      >
         <div className="mb-0.5 flex-1 space-y-2">
-          <div className="flex items-center justify-start space-x-2">
+          <motion.div
+            className="flex items-center justify-start space-x-2"
+            initial={{ x: -10, opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            transition={{ delay: 0.1 }}
+          >
             <StatusIcon status={task.status} />
-            <div className="text-sm font-medium text-foreground">
+            <div className="line-clamp-2 text-sm font-medium text-foreground">
               {capitalizeFirstChar(task.description)}
             </div>
-          </div>
-          <div className="ml-7 flex flex-wrap items-center gap-x-1.5 gap-y-1 text-xs">
+          </motion.div>
+          <motion.div
+            className="ml-7 flex flex-wrap items-center gap-x-1.5 gap-y-1 text-xs"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.2 }}
+          >
             {metadataSegments.map((segment, index) => (
               <React.Fragment key={`${segment}-${index}`}>
                 {index > 0 && (
@@ -128,9 +146,9 @@ export const TaskItem: React.FC<TaskItemProps> = ({ task }) => {
                 <span className="text-muted-foreground">{segment}</span>
               </React.Fragment>
             ))}
-          </div>
+          </motion.div>
         </div>
-      </div>
+      </motion.div>
     </Link>
   );
 };

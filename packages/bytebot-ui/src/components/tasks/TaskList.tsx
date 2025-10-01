@@ -70,21 +70,23 @@ export const TaskList: React.FC<TaskListProps> = ({
   return (
     <div className={className}>
       {showHeader && (
-        <div className="mb-6 flex flex-col gap-1">
-          <h2 className="text-base font-medium">{title}</h2>
-          <p className="text-sm text-bytebot-bronze-light-11">{description}</p>
+        <div className="mb-4 flex flex-col gap-1">
+          <h2 className="text-lg font-semibold text-foreground">{title}</h2>
+          {description && (
+            <p className="text-sm text-muted-foreground">{description}</p>
+          )}
         </div>
       )}
       
       {isLoading ? (
-        <div className="p-4 text-center">
-          <div className="animate-spin h-6 w-6 border-4 border-bytebot-bronze-light-5 border-t-bytebot-bronze rounded-full mx-auto mb-2"></div>
-          <p className="text-gray-500 text-sm">Loading tasks...</p>
+        <div className="rounded-lg border border-border bg-card p-8 text-center shadow-sm dark:border-border/60 dark:bg-muted">
+          <div className="mx-auto mb-3 h-8 w-8 animate-spin rounded-full border-4 border-border border-t-foreground"></div>
+          <p className="text-sm text-muted-foreground">Loading tasks...</p>
         </div>
       ) : tasks.length === 0 ? (
-        <div className="p-4 text-center border border-dashed border-bytebot-bronze-light-5 rounded-lg">
-          <p className="text-gray-500 text-sm">No tasks available</p>
-          <p className="text-gray-400 text-xs mt-1">Your completed tasks will appear here</p>
+        <div className="rounded-lg border border-dashed border-border bg-card/50 p-8 text-center dark:border-border/40 dark:bg-muted/30">
+          <p className="text-sm font-medium text-foreground">No tasks available</p>
+          <p className="mt-1 text-xs text-muted-foreground">Your tasks will appear here once created</p>
         </div>
       ) : (
         <div className="space-y-3">
